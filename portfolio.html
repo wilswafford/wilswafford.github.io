@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>William's Inforformation Super-Highway Site</title>
-       <style type="text/css">
+        <title>William's Bodacious Portfolio Page</title>
+        <style type="text/css">
             body {
-                background: rgb(75, 75, 75);
+              background: rgb(75, 75, 75);
                 color: rgb(45, 45, 45);
                 padding: 0px;
                 font-family: arial;
@@ -23,7 +23,7 @@
     
             /* navigation menu */
             nav {
-                background: rgb(128, 210, 170);
+              background: rgb(128, 210, 170);
                 margin: 0 auto;
                 display: flex;
                 padding: 10px;
@@ -31,7 +31,6 @@
                 border-radius: 15px 15px 0px 0px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 4px 20px 0 rgba(0, 0, 0, 0);
           
-
             }
             nav header {
                 display: flex;
@@ -53,64 +52,68 @@
     
             /* main container area beneath menu */
             main {
-                background: rgb(255, 255, 255);
+                 background: rgb(255, 255, 255);
                 display: flex;
                 border: 2px ;
                  border-radius: 0px 0px 15px 15px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 10px 20px 0 rgba(0, 0, 0, 0.2);
             }
-            .sidebar {
-                margin-right: 25px;
-                padding: 10px;
-            }
-            .sidebar img {
-                width: 200px;
-            }
             .content {
                 flex: 1;
                 padding: 15px;
             }
-            .interests header {
-                font-size: 1.25em;
+            
+            /* portfolio styles */
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #portfolio li:hover {
+                background: #eee;
+            } 
+            
+            #portfolio a {
+                text-decoration: none;
+                color: #454545;
             }
         </style>
     </head>
     
-    
     <body>
-        <div id="all contents">
+        
+        <div id="allcontents">
             <nav>
-                <h>William's Totally Rad Information Super-Highway Site</h>
+                <header>William's Bodacious Portfolio Page</header>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
+                    
+                    <li><a href="index.html">Home</a>
+                    </li>
+                    
+                    <li><a href="portfolio.html">Portfolio</a>
+                    </li>
+                    
                 </ul>
             </nav>
             
-            
             <main>
-                <div class="sidebar">
+                <div class="content">
                     
-                   <img src=https://www.siliconweek.com/wp-content/uploads/2016/04/zuckerberg.jpg>
-                   </img>
-                </div>
-                
-               <div class="content">
-                   <h1>William's website</h1>
-                   
-                   
-                    <section class="Things">
-                       
-                       <h>Intrests...</h>
-                           <ul>
-                           <li>I like art</li>
-                           <li>I like video games/video game design</li>
-                           <li>I like films/film production</li>
-                           <li>Also Mark Zuckerberg</li>
-                           </ul>
-                    </section>
+                    <h1>Portfolio</h1>
+                    
+                    <ul id="portfolio">
+                    <ul>
                 </div>
             </main>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script id="portfolioScript">$(document).ready(function() {$.getJSON('projects/projects.json').then(function(data) { data.projects.forEach(function(project){ $('#portfolio').append('<li><a href="projects/' + project.name + '/">' + project.title + ' : ' + project.description + '</a></li>'); }); }); });</script>
     </body>
 </html>
