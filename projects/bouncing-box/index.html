@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bouncing Box</title>
+	<script src="jquery.min.js"></script>
+
+
+
+	<style>
+
+		.box {
+			display: block;
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			top: 100px;
+			left: 0px;
+			background-color: teal;
+			font-size: 300%;
+			text-align: center;
+			background-image: linear-gradient(red, yellow);
+	
+
+		}
+	</style>
+
+</head>
+<body class="board">
+
+	<div class="box">?</div>
+
+	<script>
+		(function(){
+			'use strict'
+
+			var box = $('.box');
+			var boardWidth = $('.board').width();
+	       
+				
+			var position;
+			var points;
+			var speed;
+			var direction;
+				
+				direction = 1;
+				position = 0;
+				points = 0;
+				speed = 4.5;
+			
+			var update = function() {
+
+			
+				
+				position = position + (speed * direction);
+				 if(position > boardWidth) {
+			     direction = -1;
+				 }
+				 
+				 if(position < 0) {
+			     direction = 1;
+				 }
+				console.log("new position:" + position);
+				
+				
+				box.css('left', position);
+				box.text(points);
+				
+			};
+
+
+			
+			var handleBoxClick = function() {
+				points = points + 1;   
+				box.text(points);     
+				position = 0;        
+				speed = speed + 1.35;   
+			};
+
+
+			//60 fps mod
+			setInterval(update, 20);
+			box.on('click', handleBoxClick);
+		})();
+	</script>
+</body>
+</html>
